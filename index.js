@@ -19,9 +19,8 @@ const remainingFuel = fuelBurnRatePerSecond * timeInSeconds //calculates remaini
 const newVelocity = calcNewVel(acc, velocityInKilometersPerHour, timeInSeconds) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-calcNewVel = (velocityInKilometersPerHour, accelarationInMetersPerSecondSquare, timeInSeconds) => { 
-  return velocityInKilometersPerHour + (accelarationInMetersPerSecondSquare * timeInSeconds)
-}
+calcNewVel = (velocityInKilometersPerHour, accelarationInMetersPerSecondSquare, timeInSeconds) => velocityInKilometersPerHour + (accelarationInMetersPerSecondSquare * timeInSeconds);
+
 
 console.log(`Corrected New Velocity: ${newVelocity} km/h`);
 console.log(`Corrected New Distance: ${newDistance} km`);
