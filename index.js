@@ -13,6 +13,33 @@ const distaceInKilometers = 0; // distance (km)
 const InitialFuelInKilograms = 5000; // remaining fuel (kg)
 const fuelBurnRatePerSecond = 0.5; // fuel burn rate (kg/s)
 
+// Check if correct values are parsed
+
+function checkParameters{
+    if (velocityInKilometersPerHour !== 'number' || velocityInKilometersPerHour < 0){
+        throw new Error('Invalit Input')
+    }
+
+    if (accelarationInMetersPerSecondSquare !== 'number'){
+        throw new Error('Invalid Input')
+    }
+
+    if (timeInSeconds !== 'number' || timeInSeconds<0){
+        throw new Error('Invalid Input')
+    }
+    if(distaceInKilometers !== 'number' || distaceInKilometers < 0){
+        throw new Error('Invalid Input')
+    } 
+    if ( InitialFuelInKilograms !== 'number' || InitialFuelInKilograms < 0){
+        throw new Error('Invalid Input')
+    }  
+    if(fuelBurnRatePerSecond <= 0.4){
+        throw new Error('Warning: Petrol pump malfactioning')
+    }
+}   
+
+checkParameters();
+
 
 const newDistance = distaceInKilometers + (velocityInKilometersPerHour * timeInSeconds); //calcultes new distance
 const remainingFuel = fuelBurnRatePerSecond * timeInSeconds; //calculates remaining fuel
