@@ -7,7 +7,7 @@
 
 // Given Parameters
 const velocityInKilometersPerHour = 10000; // velocity (km/h)
-const acc = 3; // acceleration (m/s^2)
+const accelarationInMetersPerSecondSquare = 3; // acceleration (m/s^2)
 const time = 3600; // seconds (1 hour)
 const distaceInKilometers = 0; // distance (km)
 const fuel = 5000; // remaining fuel (kg)
@@ -19,8 +19,8 @@ const rf = fbr*time //calculates remaining fuel
 const vel2 = calcNewVel(acc, velocityInKilometersPerHour, time) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
-calcNewVel = (velocityInKilometersPerHour, acc, time) => { 
-  return velocityInKilometersPerHour + (acc*time)
+calcNewVel = (velocityInKilometersPerHour, accelarationInMetersPerSecondSquare, time) => { 
+  return velocityInKilometersPerHour + (accelarationInMetersPerSecondSquare * time)
 }
 
 console.log(`Corrected New Velocity: ${vel2} km/h`);
