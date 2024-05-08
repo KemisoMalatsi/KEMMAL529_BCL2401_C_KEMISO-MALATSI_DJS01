@@ -10,8 +10,8 @@ const velocityInKilometersPerHour = 10000; // velocity (km/h)
 const accelarationInMetersPerSecondSquare = 3; // acceleration (m/s^2)
 const timeInSeconds = 3600; // seconds (1 hour)
 const distaceInKilometers = 0; // distance (km)
-const fuel = 5000; // remaining fuel (kg)
-const fbr = 0.5; // fuel burn rate (kg/s)
+const fuelInKilograms = 5000; // remaining fuel (kg)
+const fuelBurnRatePerSecond = 0.5; // fuel burn rate (kg/s)
 
 
 const d2 = distaceInKilometers + (velocityInKilometersPerHour * timeInSeconds) //calcultes new distance
