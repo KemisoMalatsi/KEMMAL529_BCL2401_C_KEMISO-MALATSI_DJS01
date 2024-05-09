@@ -40,27 +40,29 @@ function checkParameters() {
 
 checkParameters();
 
-/*
-const newDistance = distaceInKilometers + (velocityInKilometersPerHour * timeInSeconds); //calcultes new distance
-const remainingFuel = fuelBurnRatePerSecond * timeInSeconds; //calculates remaining fuel
-const newVelocity = calcNewVel(accelarationInMetersPerSecondSquare, velocityInKilometersPerHour, timeInSeconds); //calculates new velocity based on acceleration
-
-
-// Pick up an error with how the function below is called and make it robust to such errors
-function calcNewVel(accelarationInMetersPerSecondSquare, velocityInKilometersPerHour, timeInSeconds){
-    return velocityInKilometersPerHour + (accelarationInMetersPerSecondSquare * timeInSeconds)
+// function to calculate new didtance
+function calcNewDistance(distaceInKilometers, velocityInKilometersPerHour, timeInSeconds){
+    return distaceInKilometers + (distaceInKilometers * timeInSeconds);
 }
 
- function calcNewDistance(fuelBurnRatePerSecond, timeInSeconds) {
-    return fuelBurnRatePerSecond * timeInSeconds
- }
+// function to calculate the remaining fuel
+function calcRemainingFuel (InitialFuelInKilograms, timeInSeconds) {
+    return InitialFuelInKilograms - (fuelBurnRatePerSecond * timeInSeconds);
+}
 
+// function to calculate new velocity
+function calcNewVelocity(accelarationInMetersPerSecondSquare, velocityInKilometersPerHour, timeInSeconds){
+    return velocityInKilometersPerHour + (accelarationInMetersPerSecondSquare * timeInSeconds);
+}
 
+const newDistance = calcNewDistance(distaceInKilometers, velocityInKilometersPerHour, timeInSeconds); //calcultes new distance
+const remainingFuel = calcRemainingFuel(InitialFuelInKilograms, timeInSeconds); //calculates remaining fuel
+const newVelocity = calcNewVelocity(accelarationInMetersPerSecondSquare, velocityInKilometersPerHour, timeInSeconds); //calculates new velocity based on acceleration
 
 
 console.log(`Corrected New Velocity: ${newVelocity} km/h`);
 console.log(`Corrected New Distance: ${newDistance} km`);
 console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
-*/
+
 
 
