@@ -15,22 +15,22 @@ const fuelBurnRatePerSecond = 0.5; // fuel burn rate (kg/s)
 
 // Check if correct values are parsed
 
-function checkParameters{
-    if (velocityInKilometersPerHour !== 'number' || velocityInKilometersPerHour < 0){
+function checkParameters() {
+    if (typeof velocityInKilometersPerHour !== 'number' || velocityInKilometersPerHour < 0){
         throw new Error('Invalit Input')
     }
 
-    if (accelarationInMetersPerSecondSquare !== 'number'){
+    if (typeof accelarationInMetersPerSecondSquare !== 'number'){
         throw new Error('Invalid Input')
     }
 
-    if (timeInSeconds !== 'number' || timeInSeconds<0){
+    if (typeof timeInSeconds !== 'number' || timeInSeconds<0){
         throw new Error('Invalid Input')
     }
-    if(distaceInKilometers !== 'number' || distaceInKilometers < 0){
+    if(typeof distaceInKilometers !== 'number' || distaceInKilometers < 0){
         throw new Error('Invalid Input')
     } 
-    if ( InitialFuelInKilograms !== 'number' || InitialFuelInKilograms < 0){
+    if (typeof InitialFuelInKilograms !== 'number' || InitialFuelInKilograms < 0){
         throw new Error('Invalid Input')
     }  
     if(fuelBurnRatePerSecond <= 0.4){
@@ -40,22 +40,27 @@ function checkParameters{
 
 checkParameters();
 
-
+/*
 const newDistance = distaceInKilometers + (velocityInKilometersPerHour * timeInSeconds); //calcultes new distance
 const remainingFuel = fuelBurnRatePerSecond * timeInSeconds; //calculates remaining fuel
 const newVelocity = calcNewVel(accelarationInMetersPerSecondSquare, velocityInKilometersPerHour, timeInSeconds); //calculates new velocity based on acceleration
+
 
 // Pick up an error with how the function below is called and make it robust to such errors
 function calcNewVel(accelarationInMetersPerSecondSquare, velocityInKilometersPerHour, timeInSeconds){
     return velocityInKilometersPerHour + (accelarationInMetersPerSecondSquare * timeInSeconds)
 }
 
+ function calcNewDistance(fuelBurnRatePerSecond, timeInSeconds) {
+    return fuelBurnRatePerSecond * timeInSeconds
+ }
+
+
+
+
 console.log(`Corrected New Velocity: ${newVelocity} km/h`);
 console.log(`Corrected New Distance: ${newDistance} km`);
 console.log(`Corrected Remaining Fuel: ${remainingFuel} kg`);
-
-
-
-
+*/
 
 
