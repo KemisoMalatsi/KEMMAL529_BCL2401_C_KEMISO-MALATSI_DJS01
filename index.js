@@ -18,7 +18,8 @@ const givenParams = {
 
 // Check if correct values are parsed
 
-function checkParameters() {
+function checkParameters(params) {
+    const { velocityInKilometersPerHour, accelerationInMetersPerSecondSquared, timeInSeconds, distanceInKilometers, initialFuelInKilograms, fuelBurnRatePerSecond } = params;
     if (typeof velocityInKilometersPerHour !== 'number' || velocityInKilometersPerHour < 0){
         throw new Error('Velocity must be a postive number!')
     }
@@ -41,7 +42,7 @@ function checkParameters() {
     }
 }   
 
-checkParameters();
+checkParameters(givenParams);
 
 // function to calculate new didtance
 function calcNewDistance(distaceInKilometers, velocityInKilometersPerHour, timeInSeconds){
