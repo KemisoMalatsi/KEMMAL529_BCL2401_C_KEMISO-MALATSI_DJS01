@@ -7,12 +7,12 @@
 
 // Given Parameters
 const givenParams = {
-    const velocityInKilometersPerHour : 10000, // velocity (km/h)
-    const accelarationInMetersPerSecondSquare : 3, // acceleration (m/s^2)
-    const timeInSeconds : 3600, // seconds (1 hour)
-    const distaceInKilometers : 0, // distance (km)
-    const InitialFuelInKilograms : 5000, // remaining fuel (kg)
-    const fuelBurnRatePerSecond : 0.5 // fuel burn rate (kg/s)
+    velocityInKilometersPerHour: 10000, // velocity (km/h)
+    accelarationInMetersPerSecondSquare: 3, // acceleration (m/s^2)
+    timeInSeconds: 3600, // seconds (1 hour)
+    distaceInKilometers: 0, // distance (km)
+    initialFuelInKilograms: 5000, // remaining fuel (kg)
+    fuelBurnRatePerSecond: 0.5 // fuel burn rate (kg/s)
 };
 
 
@@ -20,24 +20,24 @@ const givenParams = {
 
 function checkParameters(params) {
     const { velocityInKilometersPerHour, accelerationInMetersPerSecondSquared, timeInSeconds, distanceInKilometers, initialFuelInKilograms, fuelBurnRatePerSecond } = params;
-    if (typeof velocityInKilometersPerHour !== 'number' || velocityInKilometersPerHour < 0){
+    if (typeof velocityInKilometersPerHour !== 'number' && velocityInKilometersPerHour < 0){
         throw new Error('Velocity must be a postive number!')
     }
 
-    if (typeof accelarationInMetersPerSecondSquare !== 'number' || accelarationInMetersPerSecondSquare < 0){
+    if (typeof accelerationInMetersPerSecondSquared !== 'number' && accelerationInMetersPerSecondSquared < 0){
         throw new Error('Acceleration must be a positive number!')
     }
 
-    if (typeof timeInSeconds !== 'number' || timeInSeconds < 0){
+    if (typeof timeInSeconds !== 'number' && timeInSeconds < 0){
         throw new Error('Time must be a positive number!')
     }
-    if(typeof distaceInKilometers !== 'number' || distaceInKilometers < 0){
+    if(typeof distanceInKilometers !== 'number' && distanceInKilometers < 0){
         throw new Error('Warning: Distance must be a positive number!')
     } 
-    if (typeof InitialFuelInKilograms !== 'number' || InitialFuelInKilograms < 0){
+    if (typeof initialFuelInKilograms !== 'number' && initialFuelInKilograms < 0){
         throw new Error('Warning: Fuel level too low or Invalid Input!')
     }  
-    if(fuelBurnRatePerSecond !== 'number' || fuelBurnRatePerSecond < 0 ) {
+    if(fuelBurnRatePerSecond !== 'number' && fuelBurnRatePerSecond < 0 ) {
         throw new Error('Warning: Petrol pump is malfactioning or enter the correct value!')
     }
 }   
@@ -45,23 +45,24 @@ function checkParameters(params) {
 checkParameters(givenParams);
 
 // function to calculate new didtance
-function calcNewDistance(distaceInKilometers, velocityInKilometersPerHour, timeInSeconds){
-    return distaceInKilometers + (distaceInKilometers * timeInSeconds);
+function calcNewDistance({distaceInKilometers, velocityInKilometersPerHour, timeInSeconds}){
+    const velocityInKilometersPerSeconds = velocityInKilometersPerHour  // convert from km/h to km/s
+    return distaceInKilometers + (velocityInKilometersPerHour * (timeInSeconds/3600));
 }
 
 // function to calculate the remaining fuel
-function calcRemainingFuel (InitialFuelInKilograms, timeInSeconds) {
-    return InitialFuelInKilograms - (fuelBurnRatePerSecond * timeInSeconds);
+function calcRemainingFuel ({initialFuelInKilograms, fuelBurnRatePerSecond,timeInSeconds}) {
+    return initialFuelInKilograms - (fuelBurnRatePerSecond * timeInSeconds);
 }
 
 // function to calculate new velocity
-function calcNewVelocity(accelarationInMetersPerSecondSquare, velocityInKilometersPerHour, timeInSeconds){
-    return velocityInKilometersPerHour + (accelarationInMetersPerSecondSquare * timeInSeconds);
+function calcNewVelocity({accelarationInMetersPerSecondSquare, velocityInKilometersPerHour, timeInSeconds}){
+    return velocityInKilometersPerHour + (accelarationInMetersPerSecondSquare * timeInSeconds)*3.6; //convert to hours
 }
 
-const newDistance = calcNewDistance(distaceInKilometers, velocityInKilometersPerHour, timeInSeconds); //calcultes new distance
-const remainingFuel = calcRemainingFuel(InitialFuelInKilograms, timeInSeconds); //calculates remaining fuel
-const newVelocity = calcNewVelocity(accelarationInMetersPerSecondSquare, velocityInKilometersPerHour, timeInSeconds); //calculates new velocity based on acceleration
+const newDistance = calcNewDistance(givenParams); //calcultes new distance
+const remainingFuel = calcRemainingFuel(givenParams); //calculates remaining fuel
+const newVelocity = calcNewVelocity(givenParams); //calculates new velocity based on acceleration
 
 
 console.log(`Corrected New Velocity: ${newVelocity} km/h`);
