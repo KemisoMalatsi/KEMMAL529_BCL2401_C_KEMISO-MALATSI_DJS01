@@ -17,24 +17,24 @@ const fuelBurnRatePerSecond = 0.5; // fuel burn rate (kg/s)
 
 function checkParameters() {
     if (typeof velocityInKilometersPerHour !== 'number' || velocityInKilometersPerHour < 0){
-        throw new Error('Invalit Input')
+        throw new Error('Velocity must be a postive number!')
     }
 
-    if (typeof accelarationInMetersPerSecondSquare !== 'number'){
-        throw new Error('Invalid Input')
+    if (typeof accelarationInMetersPerSecondSquare !== 'number' || accelarationInMetersPerSecondSquare < 0){
+        throw new Error('Acceleration must be a positive number!')
     }
 
-    if (typeof timeInSeconds !== 'number' || timeInSeconds<0){
-        throw new Error('Invalid Input')
+    if (typeof timeInSeconds !== 'number' || timeInSeconds < 0){
+        throw new Error('Time must be a positive number!')
     }
     if(typeof distaceInKilometers !== 'number' || distaceInKilometers < 0){
-        throw new Error('Invalid Input')
+        throw new Error('Warning: Distance must be a positive number!')
     } 
     if (typeof InitialFuelInKilograms !== 'number' || InitialFuelInKilograms < 0){
-        throw new Error('Invalid Input')
+        throw new Error('Warning: Fuel level too low or Invalid Input!')
     }  
-    if(fuelBurnRatePerSecond <= 0.4){
-        throw new Error('Warning: Petrol pump malfactioning')
+    if(fuelBurnRatePerSecond !== 'number' || fuelBurnRatePerSecond < 0 ) {
+        throw new Error('Warning: Petrol pump is malfactioning or enter the correct value!')
     }
 }   
 
