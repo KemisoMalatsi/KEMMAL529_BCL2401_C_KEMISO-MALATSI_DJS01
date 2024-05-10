@@ -1,4 +1,4 @@
-# Robust Calculation System
+# MARS CLIMATE ORBITER
 
 This project implements a robust calculation system that ensures accurate calculations and handles potential errors gracefully. It addresses issues such as unit mismatches, parameter validity, and calculation errors.
 
